@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
+  --color-brand-blue: #8B0000; /* Deep Crimson */
+  --color-brand-blue-light: #A52A2A; 
+  --color-brand-blue-dark: #5C0000;
+  --color-brand-saffron: #D4AF37; /* Antique Gold */
+  --color-brand-saffron-light: #FFDF00;
+  --color-brand-saffron-dark: #996515;
+  --color-slate-400: #5D4037;
+  --color-slate-500: #4E342E;
+  --color-slate-600: #3E2723;
+  --color-slate-700: #212121;
+  --color-slate-800: #1A1A1A;
+  --color-slate-900: #0A0A0A;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-cinzel);
+  --font-body: var(--font-lora);
+}
+
+:root {
+  --background: #FDF6E3; /* Ancient Parchment */
+  --foreground: #111111; /* Nearly black for max contrast */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1C1914; /* Dark stone cave */
+    --foreground: #D7CCC8; /* Light stone */
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: linear-gradient(rgba(253, 246, 227, 0.88), rgba(253, 246, 227, 0.88)), url('/global_ancient_bg.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: linear-gradient(rgba(28, 25, 20, 0.9), rgba(28, 25, 20, 0.9)), url('/global_ancient_bg.png');
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cinzel), serif;
+}
+
+/* Ancient Stone / Parchment Panels */
+.glass-panel {
+  background: rgba(245, 235, 215, 0.9);
+  border: 1px solid rgba(139, 69, 19, 0.3); /* Saddle brown border */
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.05), 0 4px 6px rgba(0,0,0,0.1);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.glass-card {
+  background: rgba(250, 240, 220, 0.95);
+  border: 2px solid rgba(212, 175, 55, 0.3); /* Antique Gold border */
+  box-shadow: 0 10px 30px -5px rgba(62, 39, 35, 0.15), inset 0 0 10px rgba(0,0,0,0.02);
+  transition: all 0.4s ease;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.glass-card:hover {
+  box-shadow: 0 15px 35px -5px rgba(62, 39, 35, 0.25), 0 0 15px rgba(212, 175, 55, 0.2);
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* Ancient Atmosphere Background */
+.bg-gradient-mesh {
+  background-color: #2C1810;
+  background-image: radial-gradient(circle at center, rgba(139,0,0,0.3) 0%, transparent 60%),
+                    radial-gradient(circle at top right, rgba(212,175,55,0.2) 0%, transparent 50%);
+}
+
+/* Animated Orb */
+.ai-orb {
+  background: linear-gradient(135deg, #3B82F6, #F97316);
+  background-size: 200% 200%;
+  animation: orbGradient 3s ease infinite, orbFloat 4s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+@keyframes orbGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes orbFloat {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* Scrollbar hiding */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
