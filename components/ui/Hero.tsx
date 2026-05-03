@@ -2,15 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-white">
@@ -62,7 +55,7 @@ export default function Hero() {
             className="text-xl md:text-2xl text-slate-200/90 mb-12 max-w-2xl font-medium tracking-wide drop-shadow-md"
             style={{ fontFamily: 'var(--font-lora)' }}
           >
-            Explore the ancient roots and modern execution of the world's largest democratic process.
+            Explore the ancient roots and modern execution of the world&apos;s largest democratic process.
           </motion.p>
 
           <motion.div

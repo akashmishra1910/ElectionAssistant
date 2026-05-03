@@ -16,11 +16,6 @@ export default function LiveElectionExplainerCard({ updateText, timestamp, id }:
   const [complexity, setComplexity] = useState<'standard' | 'simple'>('standard');
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
-  useEffect(() => {
-    generateExplanation(complexity);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]); // Only re-run automatically if the ID changes
-
   const generateExplanation = async (level: 'standard' | 'simple') => {
     setIsGenerating(true);
     setComplexity(level);
@@ -51,6 +46,11 @@ export default function LiveElectionExplainerCard({ updateText, timestamp, id }:
       setIsGenerating(false);
     }
   };
+
+  useEffect(() => {
+    generateExplanation(complexity);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]); // Only re-run automatically if the ID changes
 
   const handleSimplify = () => {
     if (complexity === 'standard') {

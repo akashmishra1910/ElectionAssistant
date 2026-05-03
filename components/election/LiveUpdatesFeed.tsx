@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Activity } from "lucide-react";
 import LiveElectionExplainerCard from "./LiveElectionExplainerCard";
 
@@ -29,17 +29,11 @@ const MOCK_UPDATES = [
 ];
 
 export default function LiveUpdatesFeed() {
-  const [activeUpdates, setActiveUpdates] = useState<typeof MOCK_UPDATES>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeUpdates, setActiveUpdates] = useState<typeof MOCK_UPDATES>([MOCK_UPDATES[0]]);
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   useEffect(() => {
-    // Add the first update immediately
-    if (activeUpdates.length === 0) {
-      setActiveUpdates([MOCK_UPDATES[0]]);
-      setCurrentIndex(1);
-    }
-
-    // Simulate real-time updates arriving every 20 seconds
+    // Simulate real-time updates arriving every 60 seconds
     const interval = setInterval(() => {
       if (currentIndex < MOCK_UPDATES.length) {
         setActiveUpdates((prev) => [MOCK_UPDATES[currentIndex], ...prev]);

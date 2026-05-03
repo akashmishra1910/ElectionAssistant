@@ -114,7 +114,7 @@ export default function Roadmap() {
           </div>
           
           <div className="grid grid-cols-6 gap-4 relative z-10">
-            {stages.map((stage, idx) => {
+            {stages.map((stage) => {
               const Icon = stage.icon;
               const isActive = activeStage === stage.id;
               const isPast = activeStage >= stage.id;
@@ -187,7 +187,7 @@ export default function Roadmap() {
 
         {/* Mobile Vertical Timeline */}
         <div className="lg:hidden space-y-4">
-          {stages.map((stage, idx) => {
+          {stages.map((stage) => {
             const Icon = stage.icon;
             const isActive = activeStage === stage.id;
             const isPast = activeStage >= stage.id;
@@ -202,7 +202,7 @@ export default function Roadmap() {
                 }`}
                 style={{
                   '--tw-ring-color': isActive ? 'var(--color-brand-blue)' : 'transparent',
-                } as any}
+                } as React.CSSProperties}
               >
                 <div className="p-5 flex items-center gap-4">
                   <div className={`w-14 h-14 shrink-0 rounded-xl flex items-center justify-center transition-colors ${

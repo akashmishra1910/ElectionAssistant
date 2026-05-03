@@ -51,7 +51,7 @@ describe('AIAssistant', () => {
     fireEvent.click(screen.getByLabelText('Open AI Assistant'));
     
     // Type question
-    const input = screen.getByPlaceholderText('Ask about elections...');
+    const input = screen.getByPlaceholderText('Ask a question...');
     fireEvent.change(input, { target: { value: 'what is nota?' } });
     
     // Submit
