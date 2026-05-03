@@ -7,7 +7,6 @@ import VotingGuide from "@/components/simulator/VotingGuide";
 import VotingSimulator from "@/components/simulator/VotingSimulator";
 import ElectionQuiz from "@/components/quiz/ElectionQuiz";
 import BoothFinder from "@/components/election/BoothFinder";
-import VoteCounting from "@/components/election/VoteCounting";
 import LiveUpdatesFeed from "@/components/election/LiveUpdatesFeed";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
       <VotingSimulator />
       <LiveUpdatesFeed />
       <KnowledgeCards />
-      <VoteCounting />
       <ElectionQuiz />
     </>
   );

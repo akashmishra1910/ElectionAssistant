@@ -34,13 +34,6 @@ const features = [
     color: "text-purple-500",
     href: "#ai",
   },
-  {
-    title: "Live Vote Counting",
-    description: "Watch simulated real-time election results unfold.",
-    icon: Trophy,
-    color: "text-green-500",
-    href: "#results",
-  },
 ];
 
 const TiltCard = ({ feature, index }: { feature: any; index: number }) => {
